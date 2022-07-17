@@ -3,18 +3,16 @@ from flask import request, abort, _request_ctx_stack
 from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 
-AUTH0_DOMAIN = 'labs-coffee-shop.us.auth0.com'
-ALGORITHMS = ['RS256']
-API_AUDIENCE = 'https://drinks/'
+AUTH0_DOMAIN = os.getenv('AUTH0_DOMAIN')
+ALGORITHMS = os.getenv('ALGORITHMS')
+API_AUDIENCE = os.getenv('API_AUDIENCE')
 
 # AuthError Exception
-'''
-AuthError Exception
-A standardized way to communicate auth failure modes
-'''
-
 
 class AuthError(Exception):
     def __init__(self, error, status_code):
@@ -23,7 +21,6 @@ class AuthError(Exception):
 
 
 # Auth Header
-
 
 def get_token_auth_header():
     auth = request.headers.get('Authorization', None)

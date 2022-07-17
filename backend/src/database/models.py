@@ -23,11 +23,12 @@ def setup_db(app):
 
 
 '''
-db_drop_and_create_all()
-    drops the database tables and starts fresh
-    can be used to initialize a clean database
-    !!NOTE you can change the database_filename variable to have multiple verisons of a database
+
+drops the database tables and starts fresh
+can be used to initialize a clean database
+
 '''
+# db_drop_and_create_all()
 
 
 def db_drop_and_create_all():
@@ -41,7 +42,6 @@ def db_drop_and_create_all():
 
 
     drink.insert()
-# ROUTES
 
 '''
 Drink
@@ -86,12 +86,13 @@ class Drink(db.Model):
 
     '''
     insert()
-        inserts a new model into a database
-        the model must have a unique name
-        the model must have a unique id or null id
-        EXAMPLE
-            drink = Drink(title=req_title, recipe=req_recipe)
-            drink.insert()
+    inserts a new model into a database
+    the model must have a unique name
+    the model must have a unique id or null id
+    EXAMPLE
+    drink = Drink(title=req_title, recipe=req_recipe)
+    drink.insert()
+
     '''
 
     def insert(self):
@@ -100,11 +101,11 @@ class Drink(db.Model):
 
     '''
     delete()
-        deletes a new model into a database
-        the model must exist in the database
-        EXAMPLE
-            drink = Drink(title=req_title, recipe=req_recipe)
-            drink.delete()
+    deletes a new model into a database
+    the model must exist in the database
+    EXAMPLE
+        drink = Drink(title=req_title, recipe=req_recipe)
+        drink.delete()
     '''
 
     def delete(self):
@@ -113,12 +114,12 @@ class Drink(db.Model):
 
     '''
     update()
-        updates a new model into a database
-        the model must exist in the database
-        EXAMPLE
-            drink = Drink.query.filter(Drink.id == id).one_or_none()
-            drink.title = 'Black Coffee'
-            drink.update()
+    updates a new model into a database
+    the model must exist in the database
+    EXAMPLE
+    drink = Drink.query.filter(Drink.id == id).one_or_none()
+    drink.title = 'Black Coffee'
+    drink.update()
     '''
 
     def update(self):
